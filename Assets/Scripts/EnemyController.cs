@@ -75,4 +75,9 @@ public class EnemyController : MonoBehaviour
         broken = false;
         Rigidbody2D.simulated = false;
     }
+
+    public void Launch(Vector2 direction, float force)
+    {
+        Rigidbody2D.AddForce(direction * force);
+    }
 }

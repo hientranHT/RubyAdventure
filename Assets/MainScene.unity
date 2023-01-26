@@ -196,10 +196,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4352412323007148618, guid: da327cc83419cf941a764c7ef21022b7, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4637136794013101520, guid: da327cc83419cf941a764c7ef21022b7, type: 3}
       propertyPath: ruby
       value: 
       objectReference: {fileID: 1081339183}
+    - target: {fileID: 7945448000025395306, guid: da327cc83419cf941a764c7ef21022b7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8518245466190972396, guid: da327cc83419cf941a764c7ef21022b7, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -1390,7 +1398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434918672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.11, y: 5.28, z: -10}
+  m_LocalPosition: {x: 51.59, y: -0.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 146708087}
@@ -1677,7 +1685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577675716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.11, y: 5.28, z: -10}
+  m_LocalPosition: {x: 51.59, y: -0.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 401860064}
@@ -3458,6 +3466,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2028038340}
     m_Modifications:
+    - target: {fileID: 1690379935, guid: 447673808f60d8d46af8ae4ce4c2b9a7, type: 3}
+      propertyPath: maxHealOfHouse
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690379935, guid: 447673808f60d8d46af8ae4ce4c2b9a7, type: 3}
+      propertyPath: currentHealofHouse
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6426112631884164544, guid: 447673808f60d8d46af8ae4ce4c2b9a7, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -20460,6 +20476,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 701165876}
     m_Modifications:
+    - target: {fileID: 1690379935, guid: 447673808f60d8d46af8ae4ce4c2b9a7, type: 3}
+      propertyPath: maxHealOfHouse
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690379935, guid: 447673808f60d8d46af8ae4ce4c2b9a7, type: 3}
+      propertyPath: currentHealofHouse
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6426112631884164544, guid: 447673808f60d8d46af8ae4ce4c2b9a7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -22629,11 +22653,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 339599114539296302, guid: 02aae73b71638d24680ecaf17cee7544, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.11
+      value: 51.59
       objectReference: {fileID: 0}
     - target: {fileID: 339599114539296302, guid: 02aae73b71638d24680ecaf17cee7544, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.28
+      value: -0.71
       objectReference: {fileID: 0}
     - target: {fileID: 339599114539296302, guid: 02aae73b71638d24680ecaf17cee7544, type: 3}
       propertyPath: m_LocalPosition.z
