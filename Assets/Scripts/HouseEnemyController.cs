@@ -17,12 +17,6 @@ public class HouseEnemyController : MonoBehaviour
 
     public GameObject winGameLog;
 
-    //public float timeInvincible = 2.0f;
-
-    //bool isInvincible;
-
-    //float invincibleTimer;
-
     Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Awake()

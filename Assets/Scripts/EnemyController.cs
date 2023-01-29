@@ -33,6 +33,7 @@ public class EnemyController : MonoBehaviour
 
         // Enemy follow Ruby
         distance = Vector2.Distance(transform.position, ruby.transform.position);
+        Debug.Log(ruby.transform.position);
         Vector2 vector2 = ruby.transform.position - transform.position;
         if (distance < 3) 
         {

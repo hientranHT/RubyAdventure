@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vertical: 0
-  ruby: {fileID: 0}
+  ruby: {fileID: 5847346622622827176, guid: 02aae73b71638d24680ecaf17cee7544, type: 3}
   speed: 1
   audioEnemyHit: {fileID: 8300000, guid: 709a835b61b848644946696fdd5e5a4d, type: 3}
 --- !u!50 &4352412323007148618

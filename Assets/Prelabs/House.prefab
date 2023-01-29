@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -1.243926, y: -2.4441695}
@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb1ca09c2e62f6478806ab94dec98e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealOfHouse: 5
-  currentHealofHouse: 5
+  maxHealOfHouse: 3
+  currentHealofHouse: 3
   audioHouseHit: {fileID: 8300000, guid: efd79bed72371f04abfe9f4ab6ebf385, type: 3}
   ruby: {fileID: 0}
   houseHit: {fileID: 848740545050819509}

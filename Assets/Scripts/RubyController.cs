@@ -1,8 +1,15 @@
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+//using UnityEngine.SceneManagement;
+//using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-//using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using System;
+
 
 public class RubyController : MonoBehaviour
 {
@@ -46,22 +53,13 @@ public class RubyController : MonoBehaviour
 
     public AudioClip audioThrowCog;
 
-    //public InputAction rubyAction;
-
-    //public InputAction rubyThrow;
-
     Vector2 move;
 
-    //private void OnEnable()
-    //{
-    //    rubyAction.Enable();
-    //}
-    //private void OnDisable()
-    //{
-    //    rubyAction.Disable();
-    //}
+    public PlayerInputAction playerInputAction;
 
-    //public AudioClip rubyWalk;
+    Vector2 currenInput;
+
+    public Joystick joystick;
 
     // Start is called before the first frame update
     void Start()
@@ -69,12 +67,35 @@ public class RubyController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-   }
-   // Update is called once per frame
-   void Update()
+
+        playerInputAction = new PlayerInputAction();
+        playerInputAction.Player.Enable();
+
+
+        playerInputAction.Player.Movement.performed += onMovement;
+        playerInputAction.Player.Movement.canceled += onMovement;
+    }
+
+    private void onMovement(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            currenInput = context.ReadValue<Vector2>();
+        }
+
+        if (context.canceled)
+        {
+            currenInput = Vector2.zero;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
    {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        //horizontal = Input.GetAxis("Horizontal");
+        //vertical = Input.GetAxis("Vertical");
+        horizontal = joystick.Horizontal;
+        vertical = joystick.Vertical;
 
         if (isInvincible) 
         {
@@ -86,28 +107,23 @@ public class RubyController : MonoBehaviour
             }
         }
 
-        //Vector2 move = new Vector2(horizontal, vertical);
+
         move = new Vector2(horizontal, vertical);
-        //move = rubyAction.ReadValue<Vector2>();
+
         if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
         {
             lookDirection.Set(move.x, move.y);
             lookDirection.Normalize();
-            //PlaySound(rubyWalk);
         }
         animator.SetFloat("Look X", lookDirection.x);
         animator.SetFloat("Look Y", lookDirection.y);
         animator.SetFloat("Speed", move.magnitude);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Launch();
-        }
-
-        //if (rubyThrow.)
+        //if (Input.GetKeyDown(KeyCode.Space))
         //{
         //    Launch();
         //}
+
     }
 
     /// <summary>
@@ -116,10 +132,17 @@ public class RubyController : MonoBehaviour
     void FixedUpdate()
    {
         Vector2 position = transform.position;
-        position.x = position.x + 3.0f * horizontal * Time.deltaTime;
-        position.y = position.y + 3.0f * vertical * Time.deltaTime;
+        position.x = position.x + currentSpeed * horizontal * Time.deltaTime;
+        position.y = position.y + currentSpeed * vertical * Time.deltaTime;
         rb2d.MovePosition(position);
-        //rb2d.velocity = new Vector2(move.x * 3.0f, move.y * 3.0f);
+
+        Vector2 movejoystick = new Vector2(currenInput.x, currenInput.y);
+        if (!Mathf.Approximately(movejoystick.x, 0.0f) || !Mathf.Approximately(movejoystick.y, 0.0f))
+        {
+            lookDirection.Set(movejoystick.x, movejoystick.y);
+            lookDirection.Normalize();
+        }
+
     }
 
 
@@ -141,7 +164,7 @@ public class RubyController : MonoBehaviour
             PlaySound(audioHit);
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log(currentHealth + "/" + maxHealth);
+        //Debug.Log(currentHealth + "/" + maxHealth);
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
    }
     
@@ -162,7 +185,6 @@ public class RubyController : MonoBehaviour
 
     public void ThrowCogButton()
     {
-        Debug.Log("ThrowCogButton"); 
         Launch();
     }
 
