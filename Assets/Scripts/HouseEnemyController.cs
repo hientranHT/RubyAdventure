@@ -9,6 +9,14 @@ public class HouseEnemyController : MonoBehaviour
 
     public float currentHealofHouse;
 
+    public AudioClip audioHouseHit;
+
+    public GameObject ruby;
+
+    public ParticleSystem houseHit;
+
+    public GameObject winGameLog;
+
     //public float timeInvincible = 2.0f;
 
     //bool isInvincible;
@@ -28,6 +36,11 @@ public class HouseEnemyController : MonoBehaviour
        
     }
 
+    private void Start()
+    {
+        houseHit.Stop();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         CogBulletController cogBulletController = collision.GetComponent<CogBulletController>();
@@ -35,10 +48,17 @@ public class HouseEnemyController : MonoBehaviour
         if (cogBulletController != null)
         {
             currentHealofHouse--;
+            ruby.GetComponent<RubyController>().PlaySound(audioHouseHit);
+            houseHit.Play();
         }
-        if(currentHealofHouse==0)
+        if (currentHealofHouse == 0) 
         {
             Destroy(gameObject);
+            if (maxHealOfHouse == 5)
+            {
+                winGameLog.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
     }
 
