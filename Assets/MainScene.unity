@@ -1371,7 +1371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 983, y: 538}
+  m_AnchoredPosition: {x: 980, y: 400}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &339417031
@@ -22132,7 +22132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 312, y: 567}
+  m_AnchoredPosition: {x: 500, y: 400}
   m_SizeDelta: {x: 600, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1370265925
@@ -24992,6 +24992,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731718582}
     m_Modifications:
+    - target: {fileID: -5712361596944426761, guid: 447673808f60d8d46af8ae4ce4c2b9a7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1690379935, guid: 447673808f60d8d46af8ae4ce4c2b9a7, type: 3}
       propertyPath: ruby
       value: 
